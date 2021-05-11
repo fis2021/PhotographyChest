@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.fis.pc.services.UserService;
 
 import java.io.IOException;
 
@@ -22,13 +23,9 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    public boolean checkUserCredentials(String usernameField, String passwordField){
-        return true;
-    }
-
     @FXML
     void handleLoginAction() {
-        if(checkUserCredentials(usernameField.getText(),passwordField.getText())){
+        if(UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText())){
             System.out.println("Log in successful!");
         }
     }
