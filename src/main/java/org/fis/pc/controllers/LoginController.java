@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.fis.pc.services.UserService;
 
@@ -19,6 +20,9 @@ public class LoginController {
 
     @FXML
     private TextField usernameField;
+
+    @FXML
+    private Text errorMessage;
 
     @FXML
     private PasswordField passwordField;
@@ -35,6 +39,8 @@ public class LoginController {
             stage = (Stage) usernameField.getScene().getWindow();
             stage.setScene(scene);
         }
+        else
+            errorMessage.setText("Incorrect username or password!");
     }
 
     @FXML

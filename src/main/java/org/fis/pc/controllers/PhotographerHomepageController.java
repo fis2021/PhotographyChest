@@ -29,7 +29,7 @@ public class PhotographerHomepageController {
 
     @FXML
     void handleNewPostAction() throws IOException {
-        loader = new FXMLLoader(getClass().getClassLoader().getResource("newPost.fxml"));
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("postPhoto.fxml"));
         root = loader.load();
         scene = new Scene(root, 1280,720);
         stage = (Stage) usernameField.getScene().getWindow();
