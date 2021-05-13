@@ -22,4 +22,7 @@ public class PostPhotoController {
     @FXML
     private Button handleCancelPostAction;
 
+    @FXML
+    private TextField nameField;
+
 }
