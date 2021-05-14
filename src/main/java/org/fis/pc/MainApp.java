@@ -9,6 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.dizitart.no2.objects.ObjectRepository;
+import org.fis.pc.controllers.PostPageController;
+import org.fis.pc.model.Post;
 import org.fis.pc.services.FileSystemService;
 import org.fis.pc.services.PostService;
 
