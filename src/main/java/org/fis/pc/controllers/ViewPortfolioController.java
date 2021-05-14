@@ -26,8 +26,6 @@ public class ViewPortfolioController {
 
     @FXML
     private TableView<Post> table;
-    @FXML
-    private TableColumn<ImageView, String> ownerColumn;
 
     @FXML
     private TableColumn<Post, String> nameColumn;
@@ -56,7 +54,6 @@ public class ViewPortfolioController {
     }
 
     private void fillTable(){
-        ownerColumn.setMinWidth(250);
         nameColumn.setMinWidth(250);
         priceColumn.setMinWidth(250);
         categoryColumn.setMinWidth(250);

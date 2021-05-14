@@ -45,7 +45,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <Button fx:id="backHomepage" layoutX="1103.0" layoutY="633.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="112.0" text="Back">
+      <Button fx:id="backHomepage" layoutX="44.0" layoutY="648.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="46.0" prefWidth="112.0" text="Back">
          <font>
             <Font size="25.0" />
          </font>
@@ -60,6 +60,6 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="descriptionArea" layoutX="186.0" layoutY="552.0" prefHeight="164.0" prefWidth="615.0" />
+      <TextArea fx:id="descriptionArea" layoutX="186.0" layoutY="552.0" prefHeight="150.0" prefWidth="615.0" />
    </children>
 </AnchorPane>
