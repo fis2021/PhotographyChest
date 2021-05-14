@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.fis.pc.exceptions.NoImageSelectedException;
+import org.fis.pc.exceptions.*;
 import org.fis.pc.services.PostService;
 
 import java.io.File;
@@ -71,14 +71,15 @@ public class PostPhotoController {
     }
 
     @FXML
-    void handlePostAction() throws NoImageSelectedException {
+    void handlePostAction() throws NoImageSelectedException, NoNameException, NoCategoryException, NoPriceException, NoDescriptionException {
         try {
             PostService.addPost(nameField.getText(), priceField.getText(), categoryField.getValue(), descriptionField.getText(), image, LoginController.getUsername());
             errorMessage.setText("Your post was successfully added!");
         }
-        catch (NoImageSelectedException e){
+        catch (NoImageSelectedException | NoNameException | NoCategoryException | NoPriceException | NoDescriptionException e){
             errorMessage.setText(e.getMessage());
         }
+
     }
 
     @FXML

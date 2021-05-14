@@ -64,6 +64,7 @@ public class Post {
 
     public Post(String name, String price, String category, String description, String image, String ownerName){
         this.ID = count;
+        count++;
         this.name = name;
         this.category = category;
         this.price = price;
