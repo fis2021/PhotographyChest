@@ -20,7 +20,7 @@
       </AnchorPane>
    </top>
    <center>
-      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="table" onMousePressed="#goToPostpage" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="ownerColumn" prefWidth="75.0" text="C1" />
           <TableColumn fx:id="nameColumn" prefWidth="75.0" text="C2" />

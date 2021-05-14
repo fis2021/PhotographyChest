@@ -85,4 +85,16 @@ public class ViewPortfolioController {
 
     }
 
+    @FXML
+    void goToPostpage() throws IOException {
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("postPage.fxml"));
+        root = loader.load();
+        PostPageController pc = loader.getController();
+        pc.loadPostPage(table.getSelectionModel().getSelectedItem());
+        scene = new Scene(root, 1280,720);
+        stage = (Stage) table.getScene().getWindow();
+        stage.setScene(scene);
+
+    }
+
 }
