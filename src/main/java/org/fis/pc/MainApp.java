@@ -28,6 +28,7 @@ public class MainApp extends Application {
         scene = new Scene(root,1280,720);
         primaryStage.setTitle("Photography Chest");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

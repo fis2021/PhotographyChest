@@ -1,21 +1,30 @@
 package org.fis.pc.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.fis.pc.exceptions.NoImageSelectedException;
 import org.fis.pc.services.PostService;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class PostPhotoController {
+    private FXMLLoader loader;
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
 
     @FXML
-    private String image = new String();
+    private  String image;
 
     @FXML
     private TextField priceField;
@@ -28,6 +37,9 @@ public class PostPhotoController {
 
     @FXML
     private Text errorMessage;
+
+    public PostPhotoController() {
+    }
 
 
     @FXML
@@ -50,15 +62,23 @@ public class PostPhotoController {
     }
 
     @FXML
-    void handleCancelPostAction() {
-
+    void handleCancelPostAction() throws IOException {
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
+        root = loader.load();
+        scene = new Scene(root, 1280, 720);
+        stage = (Stage) descriptionField.getScene().getWindow();
+        stage.setScene(scene);
     }
 
     @FXML
-    void handlePostAction() {
-        PostService.addPost(nameField.getText(), priceField.getText(), categoryField.getValue(), descriptionField.getText(), image, LoginController.getUsername());
-
-
+    void handlePostAction() throws NoImageSelectedException {
+        try {
+            PostService.addPost(nameField.getText(), priceField.getText(), categoryField.getValue(), descriptionField.getText(), image, LoginController.getUsername());
+            errorMessage.setText("Your post was successfully added!");
+        }
+        catch (NoImageSelectedException e){
+            errorMessage.setText(e.getMessage());
+        }
     }
 
     @FXML

@@ -16,6 +16,10 @@ public class PhotographerHomepageController {
     private FXMLLoader loader;
 
     @FXML
+    public void initialize(){
+        usernameField.setText(LoginController.getUsername()+"!");
+    }
+    @FXML
     private Text usernameField;
 
     @FXML
@@ -54,7 +58,4 @@ public class PhotographerHomepageController {
         stage.setScene(scene);
     }
 
-    public void loadMessage(String username){
-        usernameField.setText(username + "!");
-    }
 }
