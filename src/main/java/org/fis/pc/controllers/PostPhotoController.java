@@ -75,20 +75,11 @@ public class PostPhotoController {
     void handlePostAction() throws NoImageSelectedException, NoNameException, NoCategoryException, NoPriceException, NoDescriptionException, IOException {
         try {
             PostService.addPost(nameField.getText(), priceField.getText(), categoryField.getValue(), descriptionField.getText(), image, LoginController.getUsername());
-            //errorMessage.setText("Your post was successfully added!");
+            errorMessage.setText("Your post was successfully added!");
         }
         catch (NoImageSelectedException | NoNameException | NoCategoryException | NoPriceException | NoDescriptionException e){
             errorMessage.setText(e.getMessage());
         }
-
-        Post post = new Post(nameField.getText(), priceField.getText(), categoryField.getValue(), descriptionField.getText(), image, LoginController.getUsername());
-        loader = new FXMLLoader(getClass().getClassLoader().getResource("postPage.fxml"));
-        root=loader.load();
-        PostPageController pc = loader.getController();
-        pc.loadPostPage(post);
-        scene=new Scene(root,1280,720);
-        stage = (Stage) descriptionField.getScene().getWindow();
-        stage.setScene(scene);
 
     }
 

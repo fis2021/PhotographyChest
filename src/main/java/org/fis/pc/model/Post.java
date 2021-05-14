@@ -1,6 +1,9 @@
 package org.fis.pc.model;
 
+import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import org.dizitart.no2.objects.Id;
+import org.fis.pc.controllers.PostPageController;
 
 public class Post {
 
@@ -13,6 +16,12 @@ public class Post {
     private String category;
     private String ownerName;
     private String image;
+
+    public String getDateAdded() {
+        return dateAdded;
+    }
+
+    private String dateAdded;
 
     public String getName() {
         return name;
@@ -62,9 +71,10 @@ public class Post {
         Post.count = count;
     }
 
-    public Post(String name, String price, String category, String description, String image, String ownerName){
+    public Post(String name, String price, String category, String description, String image, String ownerName,String dateAdded){
         this.ID = count;
         count++;
+        this.dateAdded=dateAdded;
         this.name = name;
         this.category = category;
         this.price = price;

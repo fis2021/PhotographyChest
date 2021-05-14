@@ -44,19 +44,28 @@ public class PostPageController {
     private Text category;
 
     @FXML
-    private Button backHomepage;
+    void handleBackButton() throws IOException {
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("viewPortfolio.fxml"));
+        root = loader.load();
+        scene = new Scene(root, 1280, 720);
+        stage = (Stage) photoName.getScene().getWindow();
+        stage.setScene(scene);
+    }
 
     @FXML
     private Text email;
 
-    public void loadPostPage(Post post) throws IOException {
+
+    public void loadPostPage(Post post) {
         usernameField.setText(post.getOwnerName());
         category.setText(post.getCategory());
         price.setText(post.getPrice());
         descriptionArea.setText(post.getDescription());
         photoName.setText(post.getName());
+        descriptionArea.setEditable(false);
         imageView.setImage(new Image("file:"+post.getImage()));
     }
+
 
     @FXML
     void handleDeletePostAction() {
