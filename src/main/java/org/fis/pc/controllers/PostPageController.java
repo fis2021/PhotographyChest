@@ -58,4 +58,14 @@ public class PostPageController {
         imageView.setImage(new Image("file:"+post.getImage()));
     }
 
+    @FXML
+    void handleDeletePostAction() {
+
+    }
+
+    @FXML
+    void handleEditPostAction() {
+
+    }
+
 }
