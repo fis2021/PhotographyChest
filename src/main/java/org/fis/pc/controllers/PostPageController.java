@@ -49,6 +49,7 @@ public class PostPageController {
     @FXML
     private Text email;
 
+
     public void loadPostPage(Post post) throws IOException {
         usernameField.setText(post.getOwnerName());
         category.setText(post.getCategory());
@@ -57,5 +58,6 @@ public class PostPageController {
         photoName.setText(post.getName());
         imageView.setImage(new Image("file:"+post.getImage()));
     }
+
 
 }

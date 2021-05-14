@@ -5,6 +5,9 @@ import org.dizitart.no2.objects.ObjectRepository;
 import org.fis.pc.exceptions.*;
 import org.fis.pc.model.Post;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import static org.fis.pc.services.FileSystemService.getPathToFile;
 
 public class PostService {
@@ -25,14 +28,17 @@ public class PostService {
     }
 
     public static void addPost(String name, String price, String category, String description, String image, String ownerName) throws NoImageSelectedException, NoNameException, NoCategoryException, NoPriceException, NoDescriptionException {
-        Post post = new Post(name,price,category,description,image,ownerName);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String date = formatter.format(calendar.getTime());
+        Post post = new Post(name,price,category,description,image,ownerName,date);
+        System.out.println(date);
         checkIfImageSelected(image);
         checkIfCategorySelected(category);
         checkIfDescriptionSelected(description);
         checkIfNameSelected(name);
         checkIfPriceSelected(price);
         postRepository.insert(post);
-
     }
 
     public static void checkIfImageSelected(String image) throws NoImageSelectedException {
