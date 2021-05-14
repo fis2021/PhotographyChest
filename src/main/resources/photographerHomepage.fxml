@@ -12,7 +12,7 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <Text fx:id="usernameField" layoutX="606.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="149.466064453125">
+      <Text fx:id="usernameField" layoutX="593.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="434.41033935546875">
          <font>
             <Font size="33.0" />
          </font>
