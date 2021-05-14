@@ -71,4 +71,7 @@ public class Post {
         this.image = image;
         this.ownerName = ownerName;
     }
+    public Post(){
+
+    }
 }

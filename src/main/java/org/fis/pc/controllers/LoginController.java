@@ -17,6 +17,7 @@ public class LoginController {
     private Stage stage;
     private Scene scene;
     private FXMLLoader loader;
+    private static String username;
 
     @FXML
     private TextField usernameField;
@@ -30,6 +31,7 @@ public class LoginController {
     @FXML
     void handleLoginAction() throws IOException {
         if(UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText())){
+            username = usernameField.getText();
             System.out.println("Log in successful!");
             loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
             root = loader.load();
@@ -41,6 +43,10 @@ public class LoginController {
         }
         else
             errorMessage.setText("Incorrect username or password!");
+    }
+
+    public static String getUsername(){
+        return username;
     }
 
     @FXML

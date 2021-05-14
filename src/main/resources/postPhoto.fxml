@@ -45,12 +45,12 @@
          </font>
       </TextField>
       <ChoiceBox fx:id="categoryField" layoutX="638.0" layoutY="294.0" prefHeight="50.0" prefWidth="452.0" />
-      <Button fx:id="handleBrowsePhotoAction" layoutX="642.0" layoutY="211.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="452.0" text="browse photo">
+      <Button layoutX="642.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleBrowseAction" prefHeight="52.0" prefWidth="452.0" text="browse photo">
          <font>
             <Font size="29.0" />
          </font>
       </Button>
-      <Button fx:id="handleCancelPostAction" layoutX="86.0" layoutY="631.0" mnemonicParsing="false" text="Cancel">
+      <Button layoutX="86.0" layoutY="631.0" mnemonicParsing="false" onAction="#handleCancelPostAction" text="Cancel">
          <font>
             <Font size="23.0" />
          </font>
@@ -65,5 +65,15 @@
             <Font size="28.0" />
          </font>
       </TextField>
+      <Text fx:id="errorMessage" fill="#ff1e00" layoutX="296.0" layoutY="658.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="422.3433532714844">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Button layoutX="1099.0" layoutY="639.0" mnemonicParsing="false" onAction="#handlePostAction" text="Post">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
