@@ -24,9 +24,16 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    void handleLoginAction() {
+    void handleLoginAction() throws IOException {
         if(UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText())){
             System.out.println("Log in successful!");
+            loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
+            root = loader.load();
+            PhotographerHomepageController phc = loader.getController();
+            phc.loadMessage(usernameField.getText());
+            scene = new Scene(root, 1280,720);
+            stage = (Stage) usernameField.getScene().getWindow();
+            stage.setScene(scene);
         }
     }
 
