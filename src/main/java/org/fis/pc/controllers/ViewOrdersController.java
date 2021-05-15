@@ -21,7 +21,14 @@ public class ViewOrdersController {
     private Parent root;
     private Scene scene;
     private Stage stage;
+    private static Order thisOrder;
 
+
+
+    private static ObservableList<Order> list = FXCollections.observableArrayList();
+    public static ObservableList<Order> getList() {
+        return list;
+    }
     @FXML
     private TableView<Order> ordersTable;
 
@@ -37,19 +44,31 @@ public class ViewOrdersController {
     @FXML
     private void initialize()
     {
+
         fillTable();
     }
+
+    public static Order getThisOrder()
+    {
+        return thisOrder;
+    }
+
     public void loadOrders(){
+
         Order order1 = new Order("pozaradu","poza","ciulpiralu");
         Order order2 = new Order("raluca","munte","radu");
         Order order3 = new Order("loredana","pisica","bruno");
-        ObservableList<Order> list = FXCollections.observableArrayList();
         list.add(order1);
         list.add(order2);
         list.add(order3);
 
         ordersTable.setItems(list);
     }
+
+    public static void deleteOrder(Order order){
+        list.remove(order);
+    }
+
     @FXML
     void backButton() throws IOException {
         loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
@@ -60,8 +79,13 @@ public class ViewOrdersController {
     }
 
     @FXML
-    void viewOrderAction() {
-
+    void viewOrderAction() throws IOException {
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("manageOrders.fxml"));
+        root = loader.load();
+        thisOrder=ordersTable.getSelectionModel().getSelectedItem();
+        scene = new Scene(root, 1280, 720);
+        stage = (Stage) ordersTable.getScene().getWindow();
+        stage.setScene(scene);
     }
 
     private void fillTable(){
