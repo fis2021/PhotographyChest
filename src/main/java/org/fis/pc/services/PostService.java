@@ -41,6 +41,15 @@ public class PostService {
         postRepository.insert(post);
     }
 
+    public static void editPost(Post post) throws NoImageSelectedException, NoCategoryException, NoDescriptionException, NoNameException, NoPriceException {
+        checkIfImageSelected(post.getImage());
+        checkIfCategorySelected(post.getCategory());
+        checkIfDescriptionSelected(post.getDescription());
+        checkIfNameSelected(post.getName());
+        checkIfPriceSelected(post.getPrice());
+        postRepository.update(post);
+    }
+
     public static void checkIfImageSelected(String image) throws NoImageSelectedException {
         if (image==null)
             throw new NoImageSelectedException();

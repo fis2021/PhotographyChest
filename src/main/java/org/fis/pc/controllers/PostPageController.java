@@ -44,6 +44,9 @@ public class PostPageController {
     private Text category;
 
     @FXML
+    private Text email;
+
+    @FXML
     void handleBackButton() throws IOException {
         loader = new FXMLLoader(getClass().getClassLoader().getResource("viewPortfolio.fxml"));
         root = loader.load();
@@ -53,10 +56,8 @@ public class PostPageController {
     }
 
     @FXML
-    private Text email;
-
-
     public void loadPostPage(Post post) {
+        thisPost = post;
         usernameField.setText(post.getOwnerName());
         category.setText(post.getCategory());
         price.setText(post.getPrice());
@@ -66,15 +67,16 @@ public class PostPageController {
         imageView.setImage(new Image("file:"+post.getImage()));
     }
 
-
     @FXML
-    void handleDeletePostAction() {
-
+    void handleEditPostAction() throws IOException {
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("editPost.fxml"));
+        root = loader.load();
+        scene = new Scene(root, 1280, 720);
+        stage = (Stage) photoName.getScene().getWindow();
+        stage.setScene(scene);
     }
 
     @FXML
-    void handleEditPostAction() {
-
+    void handleDeletePostAction() throws IOException {
     }
-
 }
