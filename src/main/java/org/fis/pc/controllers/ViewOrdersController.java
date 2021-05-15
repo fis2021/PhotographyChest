@@ -54,8 +54,6 @@ public class ViewOrdersController {
     void backButton() throws IOException {
         loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
         root = loader.load();
-        PostPageController pc = loader.getController();
-        pc.loadPostPage(PostPageController.getThisPost());
         scene = new Scene(root, 1280, 720);
         stage = (Stage) ordersTable.getScene().getWindow();
         stage.setScene(scene);
