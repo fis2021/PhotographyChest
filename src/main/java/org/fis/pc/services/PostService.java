@@ -44,6 +44,9 @@ public class PostService {
     public static void editPost(Post post) throws NoImageSelectedException, NoCategoryException, NoDescriptionException, NoNameException, NoPriceException {
         postRepository.update(post);
     }
+    public static void deletePost(Post post){
+        postRepository.remove(post);
+    }
 
     public static void checkIfImageSelected(String image) throws NoImageSelectedException {
         if (image==null)

@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.fis.pc.model.Post;
+import org.fis.pc.services.PostService;
 
 import java.io.IOException;
 
@@ -78,5 +79,12 @@ public class PostPageController {
 
     @FXML
     void handleDeletePostAction() throws IOException {
+        Post post = PostPageController.getThisPost();
+        PostService.deletePost(post);
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("viewPortfolio.fxml"));
+        root = loader.load();
+        scene = new Scene(root, 1280, 720);
+        stage = (Stage) photoName.getScene().getWindow();
+        stage.setScene(scene);
     }
 }

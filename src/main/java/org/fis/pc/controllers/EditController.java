@@ -106,5 +106,6 @@ public class EditController {
         descriptionField.setText(post.getDescription());
     }
 
+
 }
 
