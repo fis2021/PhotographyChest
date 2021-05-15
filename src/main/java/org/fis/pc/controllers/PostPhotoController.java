@@ -74,7 +74,7 @@ public class PostPhotoController {
     @FXML
     void handlePostAction() throws NoImageSelectedException, NoNameException, NoCategoryException, NoPriceException, NoDescriptionException, IOException {
         try {
-            PostService.addPost(nameField.getText(), priceField.getText(), categoryField.getValue(), descriptionField.getText(), image, LoginController.getUsername());
+            PostService.addPost();
             errorMessage.setText("Your post was successfully added!");
         }
         catch (NoImageSelectedException | NoNameException | NoCategoryException | NoPriceException | NoDescriptionException e){
