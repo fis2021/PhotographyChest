@@ -54,9 +54,22 @@ public class EditController {
     }
 
     @FXML
-    void handlePostAction() throws NoImageSelectedException, NoNameException, NoCategoryException, NoPriceException, NoDescriptionException, IOException {
+    void handleSaveChangesAction() throws NoImageSelectedException, NoNameException, NoCategoryException, NoPriceException, NoDescriptionException, IOException {
         try {
+
+            PostService.checkIfImageSelected(image);
+            PostService.checkIfCategorySelected(categoryField.getValue());
+            PostService.checkIfDescriptionSelected(descriptionField.getText());
+            PostService.checkIfNameSelected(nameField.getText());
+            PostService.checkIfPriceSelected(priceField.getText());
+            Post post = PostPageController.getThisPost();
+            post.setImage(image);
+            post.setName(nameField.getText());
+            post.setCategory(categoryField.getValue());
+            post.setPrice(priceField.getText());
+            post.setDescription(descriptionField.getText());
             PostService.editPost(PostPageController.getThisPost());
+
             errorMessage.setText("Your post was successfully edited!");
         }
         catch (NoImageSelectedException | NoNameException | NoCategoryException | NoPriceException | NoDescriptionException e){

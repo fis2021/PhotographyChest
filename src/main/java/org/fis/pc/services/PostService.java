@@ -42,11 +42,6 @@ public class PostService {
     }
 
     public static void editPost(Post post) throws NoImageSelectedException, NoCategoryException, NoDescriptionException, NoNameException, NoPriceException {
-        checkIfImageSelected(post.getImage());
-        checkIfCategorySelected(post.getCategory());
-        checkIfDescriptionSelected(post.getDescription());
-        checkIfNameSelected(post.getName());
-        checkIfPriceSelected(post.getPrice());
         postRepository.update(post);
     }
 

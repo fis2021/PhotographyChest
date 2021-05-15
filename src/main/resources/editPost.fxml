@@ -71,7 +71,7 @@
                 <Font size="30.0" />
             </font>
         </Text>
-        <Button layoutX="1047.0" layoutY="644.0" mnemonicParsing="false" onAction="#handlePostAction" text="Save changes">
+        <Button layoutX="1047.0" layoutY="644.0" mnemonicParsing="false" onAction="#handleSaveChangesAction" text="Save changes">
             <font>
                 <Font size="23.0" />
             </font>
