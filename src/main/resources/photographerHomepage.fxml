@@ -37,7 +37,7 @@
             <Font size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1149.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log out">
+      <Button layoutX="66.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log out">
          <font>
             <Font size="19.0" />
          </font>
