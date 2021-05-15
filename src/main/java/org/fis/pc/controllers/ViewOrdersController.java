@@ -1,12 +1,18 @@
 package org.fis.pc.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.fis.pc.model.Order;
+import org.fis.pc.model.Post;
+import org.fis.pc.model.User;
 
 import java.io.IOException;
 
@@ -17,17 +23,33 @@ public class ViewOrdersController {
     private Stage stage;
 
     @FXML
-    private TableView<?> ordersTable;
+    private TableView<Order> ordersTable;
 
     @FXML
-    private TableColumn<?, ?> photoNameColumn;
+    private TableColumn<Order, String> photoNameColumn;
 
     @FXML
-    private TableColumn<?, ?> buyerNameColumn;
+    private TableColumn<Order, String> buyerNameColumn;
 
     @FXML
-    private TableColumn<?, ?> buyerEmailColumn;
+    private TableColumn<Order, String> buyerEmailColumn;
 
+    @FXML
+    private void initialize()
+    {
+        fillTable();
+    }
+    public void loadOrders(){
+        Order order1 = new Order("pozaradu","poza","ciulpiralu");
+        Order order2 = new Order("raluca","munte","radu");
+        Order order3 = new Order("loredana","pisica","bruno");
+        ObservableList<Order> list = FXCollections.observableArrayList();
+        list.add(order1);
+        list.add(order2);
+        list.add(order3);
+
+        ordersTable.setItems(list);
+    }
     @FXML
     void backButton() throws IOException {
         loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
@@ -41,6 +63,22 @@ public class ViewOrdersController {
 
     @FXML
     void viewOrderAction() {
+
+    }
+
+    private void fillTable(){
+        photoNameColumn.setMinWidth(250);
+        buyerNameColumn.setMinWidth(250);
+        buyerEmailColumn.setMinWidth(250);
+
+        photoNameColumn.setText("Photo name");
+        buyerNameColumn.setText("Buyer name");
+        buyerEmailColumn.setText("Buyer email");
+
+        photoNameColumn.setCellValueFactory(new PropertyValueFactory<>("photoName"));
+        buyerNameColumn.setCellValueFactory(new PropertyValueFactory<>("buyerName"));
+        buyerEmailColumn.setCellValueFactory(new PropertyValueFactory<>("buyerEmail"));
+        loadOrders();
 
     }
 
