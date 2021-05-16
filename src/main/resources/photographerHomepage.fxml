@@ -22,7 +22,7 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <Button contentDisplay="CENTER" layoutX="499.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleNewPostAction" prefHeight="63.0" prefWidth="295.0" text="Create new post" textAlignment="CENTER">
+      <Button contentDisplay="CENTER" id="homepagenewPostButton" layoutX="499.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleNewPostAction" prefHeight="63.0" prefWidth="295.0" text="Create new post" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
@@ -37,7 +37,7 @@
             <Font size="30.0" />
          </font>
       </Button>
-      <Button layoutX="66.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log out">
+      <Button layoutX="66.0" id="homepageLogout" layoutY="645.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log out">
          <font>
             <Font size="19.0" />
          </font>

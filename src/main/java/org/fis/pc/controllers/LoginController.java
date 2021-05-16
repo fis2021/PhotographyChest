@@ -30,7 +30,7 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    void handleLoginAction() throws IOException, EmptyFieldsException {
+    public void handleLoginAction() throws IOException, EmptyFieldsException {
         try {
             if(usernameField.getText().isEmpty()||passwordField.getText().isEmpty())
                 throw new EmptyFieldsException();

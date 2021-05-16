@@ -13,12 +13,12 @@
          <font>
          </font>
       </Text>
-      <TextField fx:id="usernameField" layoutX="651.0" layoutY="310.0" prefHeight="38.0" prefWidth="215.0" promptText="username...">
+      <TextField fx:id="usernameField" id="loginUsername" layoutX="651.0" layoutY="310.0" prefHeight="38.0" prefWidth="215.0" promptText="username...">
          <font>
             <Font size="11.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordField" layoutX="652.0" layoutY="363.0" prefHeight="37.0" prefWidth="215.0" promptText="password..." />
+      <PasswordField fx:id="passwordField" id="loginPassword" layoutX="652.0" layoutY="363.0" prefHeight="37.0" prefWidth="215.0" promptText="password..." />
       <Text layoutX="469.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="153.14583587646484">
          <font>
             <Font size="25.0" />
@@ -29,7 +29,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button layoutX="453.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="67.0" prefWidth="147.0" text="Log in" textAlignment="CENTER" AnchorPane.bottomAnchor="187.0">
+      <Button layoutX="453.0" layoutY="459.0" id="loginButton" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="67.0" prefWidth="147.0" text="Log in" textAlignment="CENTER" AnchorPane.bottomAnchor="187.0">
          <font>
             <Font size="24.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font size="25.0" />
          </font>
       </Button>
-      <Text fx:id="errorMessage" fill="RED" layoutX="388.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="547.394596263988">
+      <Text fx:id="errorMessage" id="loginErrorMessage" fill="RED" layoutX="388.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="547.394596263988">
          <font>
             <Font size="27.0" />
          </font>
