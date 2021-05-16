@@ -7,7 +7,6 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.fis.pc.model.Order;
-import org.fis.pc.model.Post;
 import org.fis.pc.services.FileSystemService;
 import org.fis.pc.services.PostService;
 import org.junit.jupiter.api.AfterEach;
@@ -20,8 +19,6 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.io.IOException;
-
-import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith({ApplicationExtension.class})
 class PhotographerHomepageControllerTest {
