@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.fis.pc.exceptions.EmptyFieldsException;
 import org.fis.pc.services.UserService;
 
 import java.io.IOException;
@@ -29,18 +30,24 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    void handleLoginAction() throws IOException {
-        if(UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText())){
-            username = usernameField.getText();
-            System.out.println("Log in successful!");
-            loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
-            root = loader.load();
-            scene = new Scene(root, 1280,720);
-            stage = (Stage) usernameField.getScene().getWindow();
-            stage.setScene(scene);
+    void handleLoginAction() throws IOException, EmptyFieldsException {
+        try {
+            if(usernameField.getText().isEmpty()||passwordField.getText().isEmpty())
+                throw new EmptyFieldsException();
+
+            if (UserService.checkLoginCredentials(usernameField.getText(), passwordField.getText())) {
+                username = usernameField.getText();
+                System.out.println("Log in successful!");
+                loader = new FXMLLoader(getClass().getClassLoader().getResource("photographerHomepage.fxml"));
+                root = loader.load();
+                scene = new Scene(root, 1280, 720);
+                stage = (Stage) usernameField.getScene().getWindow();
+                stage.setScene(scene);
+            } else
+                errorMessage.setText("Incorrect username or password!");
+        }catch(EmptyFieldsException e){
+            errorMessage.setText(e.getMessage());
         }
-        else
-            errorMessage.setText("Incorrect username or password!");
     }
 
     public static String getUsername(){
