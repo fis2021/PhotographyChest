@@ -7,14 +7,16 @@ import org.fis.pc.model.Post;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import static org.fis.pc.services.FileSystemService.getPathToFile;
 
 public class PostService {
     private static ObjectRepository<Post> postRepository;
-
+    private static Nitrite database;
     public static void initDatabase(){
-        Nitrite database = Nitrite.builder().filePath(getPathToFile("photography-chest-posts.db").toFile()).openOrCreate("test", "test");
+        FileSystemService.initDirectory();
+        database = Nitrite.builder().filePath(getPathToFile("photography-chest-posts.db").toFile()).openOrCreate("test", "test");
         postRepository = database.getRepository(Post.class);
         int count = 0;
         for (Post post : postRepository.find()) {
@@ -23,6 +25,9 @@ public class PostService {
         Post.setCount(count);
     }
 
+    public static Nitrite getDatabase(){
+        return database;
+    }
     public static ObjectRepository<Post> getPostRepository(){
         return postRepository;
     }
@@ -71,5 +76,9 @@ public class PostService {
     public static void checkIfDescriptionSelected(String description) throws NoDescriptionException {
         if (description.isEmpty())
             throw new NoDescriptionException();
+    }
+
+    public static List<Post> getAllPosts(){
+        return postRepository.find().toList();
     }
 }
