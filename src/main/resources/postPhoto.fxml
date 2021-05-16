@@ -35,17 +35,17 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextField fx:id="priceField" layoutX="638.0" layoutY="366.0" prefHeight="53.0" prefWidth="452.0">
+      <TextField fx:id="priceField" id="addPostPrice" layoutX="638.0" layoutY="366.0" prefHeight="53.0" prefWidth="452.0">
          <font>
             <Font size="28.0" />
          </font>
       </TextField>
-      <TextField fx:id="descriptionField" layoutX="638.0" layoutY="476.0" prefHeight="142.0" prefWidth="450.0">
+      <TextField fx:id="descriptionField" id="addDescription" layoutX="638.0" layoutY="476.0" prefHeight="142.0" prefWidth="450.0">
          <font>
             <Font size="28.0" />
          </font>
       </TextField>
-      <ChoiceBox fx:id="categoryField" layoutX="638.0" layoutY="294.0" prefHeight="50.0" prefWidth="452.0" />
+      <ChoiceBox fx:id="categoryField" id="addCategory" layoutX="638.0" layoutY="294.0" prefHeight="50.0" prefWidth="452.0" />
       <Button layoutX="642.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleBrowseAction" prefHeight="52.0" prefWidth="452.0" text="browse photo" textAlignment="CENTER">
          <font>
             <Font size="29.0" />
@@ -61,17 +61,17 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <TextField fx:id="nameField" layoutX="645.0" layoutY="120.0" prefHeight="53.0" prefWidth="452.0">
+      <TextField fx:id="nameField" id="addPostName" layoutX="645.0" layoutY="120.0" prefHeight="53.0" prefWidth="452.0">
          <font>
             <Font size="28.0" />
          </font>
       </TextField>
-      <Text fx:id="errorMessage" fill="#ff1e00" layoutX="307.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="687.8347473144531">
+      <Text fx:id="errorMessage" id="addPostMessage" fill="#ff1e00" layoutX="307.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="687.8347473144531">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Button layoutX="1099.0" layoutY="639.0" mnemonicParsing="false" onAction="#handlePostAction" text="Post">
+      <Button id="postButton" layoutX="1099.0" layoutY="639.0" mnemonicParsing="false" onAction="#handlePostAction" text="Post">
          <font>
             <Font size="23.0" />
          </font>
