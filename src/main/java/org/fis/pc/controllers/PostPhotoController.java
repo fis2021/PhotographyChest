@@ -25,7 +25,9 @@ public class PostPhotoController {
     private Stage stage;
 
     @FXML
-    private  String image;
+    private static String image;
+
+    private static String imageaux;
 
     @FXML
     private TextField priceField;
@@ -90,4 +92,6 @@ public class PostPhotoController {
     public void initialize(){
         categoryField.getItems().addAll("Nature", "Animals", "People", "Sports", "Abstract");
     }
+    public static void setImage(String imagex){ image=imagex; }
+    public static String getImage(){ return image; }
 }

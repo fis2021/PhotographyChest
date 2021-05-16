@@ -19,11 +19,11 @@ import org.testfx.api.FxRobot;
 import org.testfx.assertions.api.Assertions;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
-
+import static org.testfx.assertions.api.Assertions.assertThat;
 import java.io.IOException;
 
 @ExtendWith({ApplicationExtension.class})
-class PostPageControllerTest {
+class PostPhotoControllerTest {
     public final static String username = "USERNAME";
     public final static String password = "PASSWORD";
     public final static String name = "NAME";
@@ -53,46 +53,47 @@ class PostPageControllerTest {
         primaryStage.show();
     }
 
-    @Test
-    @DisplayName("Post page Loads Correctly")
-    void testPostPageLoadsCorrectly(FxRobot robot) throws NoNameException, NoImageSelectedException, NoCategoryException, NoDescriptionException, NoPriceException {
-        PostService.addPost(name,price,category,description,image,owner);
-        Post post = PostService.getAllPosts().get(0);
-
+   @Test
+    void testAddItem(FxRobot robot){
         robot.clickOn("#loginUsername");
-        robot.write("USERNAME");
+        robot.write("username");
         robot.clickOn("#loginPassword");
-        robot.write("PASSWORD");
+        robot.write("password");
         robot.clickOn("#loginButton");
 
+        robot.clickOn("#homepageAddButton");
 
-        robot.clickOn("#homepageViewPortfolio");
-        robot.type(KeyCode.UP);
-        robot.clickOn("#portfolioTable");
+        robot.clickOn("#addPostName");
+        robot.write("Post name");
+        robot.clickOn("#addPostPrice");
+        robot.write("123");
 
-        Assertions.assertThat(robot.lookup("#postName").queryText()).hasText(post.getName());
-        Assertions.assertThat(robot.lookup("#postUsername").queryText()).hasText(post.getOwnerName());
-        Assertions.assertThat(robot.lookup("#postPrice").queryText()).hasText(post.getPrice());
-        Assertions.assertThat(robot.lookup("#postCategory").queryText()).hasText(post.getCategory());
-        //Assertions.assertThat(robot.lookup("#descriptionArea").queryText()).hasText(post.getDescription());
-    }
+        robot.clickOn("#postButton");
+        assertThat(robot.lookup("#addPostMessage").queryText()).hasText("Please select a photo first!");
 
-    @Test
-    @DisplayName("Back button works")
-    void testBackButton(FxRobot robot) throws NoNameException, NoImageSelectedException, NoCategoryException, NoDescriptionException, NoPriceException {
-        PostService.addPost(name,price,category,description,image,owner);
-        Post post = PostService.getAllPosts().get(0);
+        /*PostPhotoController.setImage("image");
 
-        robot.clickOn("#loginUsername");
-        robot.write(username);
-        robot.clickOn("#loginPassword");
-        robot.write(password);
-        robot.clickOn("#loginButton");
+        robot.clickOn("#postButton");
 
+        assertThat(robot.lookup("#addPostMessage").queryText()).hasText("Please select a category first!");
 
-        robot.clickOn("#homepageViewPortfolio");
-        robot.type(KeyCode.UP);
-        robot.clickOn("#portfolioTable");
-        robot.clickOn("#postBack");
+        robot.clickOn("#addCategory");
+        robot.type(KeyCode.DOWN);
+        robot.type(KeyCode.ENTER);
+
+        robot.clickOn("#postButton");
+        assertThat(robot.lookup("#addItemMessage").queryText()).hasText("Please select a photo first!");
+
+        robot.clickOn("#addDescription");
+        robot.write("Post description");
+
+        robot.clickOn("#postButton");
+        assertThat(robot.lookup("#addItemMessage").queryText()).hasText("Please select a photo first!");
+
+        /*AddPostController.setImage("Image link");
+
+        robot.clickOn("#postButton");
+        assertThat(robot.lookup("#addItemMessage").queryText()).hasText("Item added successfully!");
+*/
     }
 }
