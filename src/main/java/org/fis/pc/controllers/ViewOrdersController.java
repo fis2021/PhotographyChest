@@ -31,6 +31,7 @@ public class ViewOrdersController {
     }
     @FXML
     private TableView<Order> ordersTable;
+    private static TableView<Order> thisOrdersTable;
 
     @FXML
     private TableColumn<Order, String> photoNameColumn;
@@ -46,6 +47,7 @@ public class ViewOrdersController {
     {
 
         fillTable();
+        thisOrdersTable=ordersTable;
     }
 
     public static Order getThisOrder()
@@ -104,4 +106,7 @@ public class ViewOrdersController {
 
     }
 
+    public static TableView<Order> getThisOrdersTable() {
+        return thisOrdersTable;
+    }
 }

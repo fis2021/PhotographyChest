@@ -22,17 +22,17 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <Button contentDisplay="CENTER" id="homepagenewPostButton" layoutX="499.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleNewPostAction" prefHeight="63.0" prefWidth="295.0" text="Create new post" textAlignment="CENTER">
+      <Button contentDisplay="CENTER" id="homepageAddButton" layoutX="499.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleNewPostAction" prefHeight="63.0" prefWidth="295.0" text="Create new post" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="497.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleViewPortfolioAction" prefHeight="63.0" prefWidth="295.0" text="View my portfolio" textAlignment="CENTER">
+      <Button contentDisplay="CENTER" id="homepageViewPortfolio" layoutX="497.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleViewPortfolioAction" prefHeight="63.0" prefWidth="295.0" text="View my portfolio" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleViewOrdersAction" prefHeight="63.0" prefWidth="295.0" text="View my orders" textAlignment="CENTER">
+      <Button alignment="CENTER" id="homepageViewOrders" contentDisplay="CENTER" layoutX="500.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleViewOrdersAction" prefHeight="63.0" prefWidth="295.0" text="View my orders" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>

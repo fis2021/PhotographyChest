@@ -28,6 +28,7 @@ public class PostService {
     public static Nitrite getDatabase(){
         return database;
     }
+
     public static ObjectRepository<Post> getPostRepository(){
         return postRepository;
     }
